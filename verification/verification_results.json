@@ -1,0 +1,42 @@
+{
+  "test1_meme_sha256_run1": "c721ab17c579548bdba6131f2c6d8ca9199f8f375a6a9b8e7617cbffa1d28dfc",
+  "test1_meme_sha256_run2": "c721ab17c579548bdba6131f2c6d8ca9199f8f375a6a9b8e7617cbffa1d28dfc",
+  "test1_deterministic": true,
+  "meme_dimensions": [
+    1536,
+    960
+  ],
+  "test2_shrink_480_saved": "verification/meme_480.png",
+  "test2_shrink_768_saved": "verification/meme_768.png",
+  "test2_square_480_saved": "verification/meme_square_480.png",
+  "test2_ghost_height_px": 380,
+  "test3_post_length": 253,
+  "test3_post_within_280": true,
+  "test3_has_link": true,
+  "test3_has_tag": true,
+  "test3_has_play_code": true,
+  "test4_run1_exit_code": 0,
+  "test4_run1_stdout": "",
+  "test4_run1_stderr": "",
+  "test4_run1_sha256": "0d55c9e7ea8f03ddf1f7a3711eb771896307180338983263b0b55de55f7586fe",
+  "test4_run2_exit_code": 0,
+  "test4_run2_stdout": "",
+  "test4_run2_stderr": "",
+  "test4_run2_sha256": "0d55c9e7ea8f03ddf1f7a3711eb771896307180338983263b0b55de55f7586fe",
+  "test4_clean_and_identical": true,
+  "test5_picture_words_checked": [
+    "WAITING FOR GTA 6",
+    "SINCE 2013",
+    "MY AI AGENT ON make.fun",
+    "SINCE MONDAY",
+    "13 YEARS OF WAITING. HE GOT PAID FIRST.",
+    "make.fun",
+    "BOUNTY $500",
+    "SEPTEMBER",
+    "GTA V RELEASE",
+    "STILL WAITING...",
+    "GTA 6 ETA:",
+    "LOADING..."
+  ],
+  "test5_spelling_pass": true
+}
