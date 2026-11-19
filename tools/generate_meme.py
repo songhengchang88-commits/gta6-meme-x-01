@@ -135,29 +135,29 @@ def render_left_panel(img: Image.Image):
     # Baseboard line
     draw.line([(0, 580), (MID_X - 1, 580)], fill=(20, 20, 22), width=6)
 
-    # 2. Cobwebs in top-left corner
-    draw_cobweb(draw, (0, 0), 220, color=(120, 125, 135))
+    # 2. Cobwebs in top-left corner (size 180 so webs do not cross calendar right edge)
+    draw_cobweb(draw, (0, 0), 180, color=(120, 125, 135))
     draw_cobweb(draw, (MID_X - 1, 0), 120, color=(100, 105, 115))
 
-    # 3. Wall Calendar stuck in 2013
-    cal_x, cal_y, cal_w, cal_h = 70, 150, 210, 260
+    # 3. Wall Calendar stuck in 2013 (shifted up so all text including 'STILL WAITING...' is fully visible above monitor)
+    cal_x, cal_y, cal_w, cal_h = 70, 115, 210, 225
     # Shadow
     draw.rectangle([cal_x + 8, cal_y + 8, cal_x + cal_w + 8, cal_y + cal_h + 8], fill=(15, 15, 18))
     # Base page
     draw.rectangle([cal_x, cal_y, cal_x + cal_w, cal_y + cal_h], fill=(225, 220, 205), outline=(60, 60, 65), width=3)
     # Top red binding bar
-    draw.rectangle([cal_x, cal_y, cal_x + cal_w, cal_y + 65], fill=(160, 30, 30), outline=(60, 60, 65), width=3)
+    draw.rectangle([cal_x, cal_y, cal_x + cal_w, cal_y + 52], fill=(160, 30, 30), outline=(60, 60, 65), width=3)
     # Calendar text
-    font_cal_header = get_font(26)
-    font_cal_year = get_font(52)
-    font_cal_sub = get_font(18)
-    draw.text((cal_x + cal_w // 2, cal_y + 32), "SEPTEMBER", font=font_cal_header, fill=C_WHITE, anchor="mm")
-    draw.text((cal_x + cal_w // 2, cal_y + 125), "2013", font=font_cal_year, fill=(180, 20, 20), anchor="mm")
-    draw.text((cal_x + cal_w // 2, cal_y + 180), "GTA V RELEASE", font=font_cal_sub, fill=(50, 50, 55), anchor="mm")
-    draw.text((cal_x + cal_w // 2, cal_y + 225), "STILL WAITING...", font=font_cal_sub, fill=(110, 110, 115), anchor="mm")
+    font_cal_header = get_font(24)
+    font_cal_year = get_font(46)
+    font_cal_sub = get_font(17)
+    draw.text((cal_x + cal_w // 2, cal_y + 26), "SEPTEMBER", font=font_cal_header, fill=C_WHITE, anchor="mm")
+    draw.text((cal_x + cal_w // 2, cal_y + 95), "2013", font=font_cal_year, fill=(180, 20, 20), anchor="mm")
+    draw.text((cal_x + cal_w // 2, cal_y + 145), "GTA V RELEASE", font=font_cal_sub, fill=(50, 50, 55), anchor="mm")
+    draw.text((cal_x + cal_w // 2, cal_y + 185), "STILL WAITING...", font=font_cal_sub, fill=(110, 110, 115), anchor="mm")
     # Cobwebs across calendar corner
-    draw.line([(cal_x + cal_w - 60, cal_y), (cal_x + cal_w, cal_y + 60)], fill=(150, 150, 155), width=2)
-    draw.line([(cal_x + cal_w - 40, cal_y), (cal_x + cal_w, cal_y + 40)], fill=(170, 170, 175), width=1)
+    draw.line([(cal_x + cal_w - 50, cal_y), (cal_x + cal_w, cal_y + 50)], fill=(150, 150, 155), width=2)
+    draw.line([(cal_x + cal_w - 30, cal_y), (cal_x + cal_w, cal_y + 30)], fill=(170, 170, 175), width=1)
 
     # 4. Old dusty desk
     desk_top_y = 540
@@ -168,9 +168,9 @@ def render_left_panel(img: Image.Image):
     draw.rectangle([desk_x1 + 30, desk_top_y + 35, desk_x1 + 55, BOTTOM_BANNER_Y], fill=(45, 40, 38))
     draw.rectangle([desk_x2 - 55, desk_top_y + 35, desk_x2 - 30, BOTTOM_BANNER_Y], fill=(45, 40, 38))
 
-    # 5. Old dusty CRT monitor / Old Console on the desk
+    # 5. Old dusty CRT monitor / Old Console on the desk (shifted right to mon_x = 180)
     # CRT monitor body
-    mon_x, mon_y, mon_w, mon_h = 160, 350, 200, 190
+    mon_x, mon_y, mon_w, mon_h = 180, 350, 200, 190
     draw.rectangle([mon_x + 6, mon_y + 6, mon_x + mon_w + 6, mon_y + mon_h + 6], fill=(15, 15, 18))
     draw.rectangle([mon_x, mon_y, mon_x + mon_w, mon_y + mon_h], fill=(120, 115, 105), outline=(40, 38, 35), width=4)
     # CRT screen
@@ -183,7 +183,7 @@ def render_left_panel(img: Image.Image):
     # CRT stand
     draw.rectangle([mon_x + 70, mon_y + mon_h, mon_x + 130, mon_y + mon_h + 10], fill=(90, 85, 75))
     # Old Game Console (PS3 / Xbox 360 shape) under / beside monitor
-    con_x, con_y, con_w, con_h = 380, 500, 140, 40
+    con_x, con_y, con_w, con_h = 390, 500, 140, 40
     draw.rectangle([con_x, con_y, con_x + con_w, con_y + con_h], fill=(40, 40, 45), outline=(20, 20, 22), width=2)
     draw.ellipse([con_x + 20, con_y + 15, con_x + 30, con_y + 25], fill=(180, 40, 40))  # red ring of death!
     # Cobwebs on monitor
@@ -245,7 +245,6 @@ def render_left_panel(img: Image.Image):
     draw.line([(515, 515), (505, 525)], fill=(220, 215, 205), width=4)
 
     # Cobwebs draping over skeleton
-    draw.line([(sk_cx + 35, sk_cy - 40), (cal_x + cal_w, cal_y + cal_h)], fill=(130, 130, 135), width=1)
     draw.line([(sk_cx - 35, sk_cy), (mon_x + mon_w, mon_y + 40)], fill=(130, 130, 135), width=2)
     draw.line([(sk_cx - 20, sk_cy + 100), (ctrl_x, ctrl_y)], fill=(130, 130, 135), width=1)
 
@@ -332,26 +331,26 @@ def render_right_panel(img: Image.Image):
 
     # 4. Modern Desk with Neon Edge
     desk_top_y = 570
-    desk_x1, desk_x2 = MID_X + 100, WIDTH - 60
+    desk_x1, desk_x2 = MID_X + 40, WIDTH - 60
     # Desk top surface
     draw.rectangle([desk_x1, desk_top_y, desk_x2, desk_top_y + 35], fill=(24, 28, 44), outline=(10, 12, 20), width=3)
     # Cyan neon glowing front strip
     draw.line([(desk_x1, desk_top_y + 3), (desk_x2, desk_top_y + 3)], fill=C_CYAN, width=5)
     # Desk legs
-    draw.rectangle([desk_x1 + 40, desk_top_y + 35, desk_x1 + 65, BOTTOM_BANNER_Y], fill=(15, 18, 28))
+    draw.rectangle([desk_x1 + 30, desk_top_y + 35, desk_x1 + 55, BOTTOM_BANNER_Y], fill=(15, 18, 28))
     draw.rectangle([desk_x2 - 65, desk_top_y + 35, desk_x2 - 40, BOTTOM_BANNER_Y], fill=(15, 18, 28))
 
-    # 5. Modern Sleek Laptop
-    lap_x, lap_y, lap_w, lap_h = MID_X + 160, 460, 220, 140
+    # 5. Modern Sleek Laptop (shifted left so screen text is fully visible and not blocked by ghost)
+    lap_x, lap_y, lap_w, lap_h = MID_X + 60, 460, 240, 140
     # Screen lid
     draw.rectangle([lap_x + 15, lap_y, lap_x + lap_w - 15, lap_y + 105], fill=(10, 15, 25), outline=(160, 160, 180), width=3)
     # Screen display: Cyan & Green win terminal
-    draw.rectangle([lap_x + 23, lap_y + 8, lap_x + lap_w - 23, lap_y + 97], fill=(5, 20, 20))
-    font_lap_code = get_font(15)
-    font_lap_big = get_font(20)
-    draw.text((lap_x + 30, lap_y + 16), "> agent.solve(bounty)", font=font_lap_code, fill=C_CYAN)
-    draw.text((lap_x + 30, lap_y + 40), "[STATUS] SUCCESS 100%", font=font_lap_code, fill=(80, 255, 100))
-    draw.text((lap_x + 30, lap_y + 68), "WIN: $500 USD", font=font_lap_big, fill=C_GOLD)
+    draw.rectangle([lap_x + 20, lap_y + 8, lap_x + lap_w - 20, lap_y + 97], fill=(5, 20, 20))
+    font_lap_code = get_font(13)
+    font_lap_big = get_font(18)
+    draw.text((lap_x + 26, lap_y + 16), "> agent.solve(bounty)", font=font_lap_code, fill=C_CYAN)
+    draw.text((lap_x + 26, lap_y + 40), "[STATUS] SUCCESS 100%", font=font_lap_code, fill=(80, 255, 100))
+    draw.text((lap_x + 26, lap_y + 68), "WIN: $500 USD", font=font_lap_big, fill=C_GOLD)
     # Laptop base / keyboard
     draw.polygon([
         (lap_x, lap_y + 115),
@@ -385,7 +384,7 @@ def render_right_panel(img: Image.Image):
         draw_text_with_outline(draw, (bx + bw // 2, by + 65), "$", font_bag_dollar, fill=C_GOLD, outline=(15, 45, 20), outline_width=3, anchor="mm")
         draw_text_with_outline(draw, (bx + bw // 2, by + 105), label, font_bag_lbl, fill=C_WHITE, outline=(15, 45, 20), outline_width=3, anchor="mm")
 
-    draw_money_bag(MID_X + 40, 610, 150, 140, "BOUNTY $500")
+    draw_money_bag(MID_X + 20, 610, 150, 140, "BOUNTY $500")
     draw_money_bag(WIDTH - 190, 600, 160, 150, "BOUNTY $500")
 
     # Stacks of sparkling Gold Coins
@@ -399,11 +398,11 @@ def render_right_panel(img: Image.Image):
         # Top star
         draw_star(draw, (cx + coin_w // 2, cy - count * 11 + coin_h // 2), 6, 2.5, points=4, fill=C_WHITE)
 
-    draw_coin_stack(MID_X + 200, 680, count=7)
-    draw_coin_stack(MID_X + 245, 690, count=5)
+    draw_coin_stack(MID_X + 195, 680, count=7)
+    draw_coin_stack(MID_X + 240, 690, count=5)
     draw_coin_stack(WIDTH - 240, 680, count=8)
     draw_coin_stack(WIDTH - 285, 695, count=6)
-    draw_coin_stack(MID_X + 390, desk_top_y - 8, count=4)
+    draw_coin_stack(MID_X + 350, desk_top_y - 8, count=4)
 
     # 7. THE MAKE.FUN GHOST MASCOT
     # Hard requirements:

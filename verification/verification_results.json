@@ -1,6 +1,6 @@
 {
-  "test1_meme_sha256_run1": "c721ab17c579548bdba6131f2c6d8ca9199f8f375a6a9b8e7617cbffa1d28dfc",
-  "test1_meme_sha256_run2": "c721ab17c579548bdba6131f2c6d8ca9199f8f375a6a9b8e7617cbffa1d28dfc",
+  "test1_meme_sha256_run1": "51a45ab0c3cef2688c0ce7ea13d78dd83b2b7aa7f1f83416bb5451acc53c05fb",
+  "test1_meme_sha256_run2": "51a45ab0c3cef2688c0ce7ea13d78dd83b2b7aa7f1f83416bb5451acc53c05fb",
   "test1_deterministic": true,
   "meme_dimensions": [
     1536,
